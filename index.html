@@ -8,16 +8,22 @@
         // Tentukan user-agent yang diizinkan (OTT Navigator)
         const allowedUserAgent = "OTT Navigator";
 
-        // Periksa user-agent dari browser
+        // Ambil user-agent dari perangkat yang mengakses
         const userAgent = navigator.userAgent;
 
-        // Jika user-agent sesuai, alihkan ke URL tujuan
+        // Tampilkan user-agent di konsol untuk debugging (hanya untuk pengujian)
+        console.log("User-Agent: ", userAgent);
+
+        // Periksa apakah user-agent sesuai dengan OTT Navigator
         if (userAgent.includes(allowedUserAgent)) {
-            // Redirect ke link yang dituju
-            window.location.href = "https://www.example.com";
+            // Pengalihan ke URL tujuan jika user-agent cocok
+            window.location.href = "https://www.example.com";  // Ganti dengan URL yang kamu tuju
         } else {
             // Tampilkan pesan jika bukan OTT Navigator
-            document.body.innerHTML = "<h1>Hanya dapat diakses melalui aplikasi OTT Navigator</h1>";
+            document.body.innerHTML = `
+                <h1>Hanya dapat diakses melalui aplikasi OTT Navigator</h1>
+                <p>Jika kamu melihat halaman ini, itu berarti kamu mengaksesnya dari aplikasi lain atau browser yang tidak mendukung.</p>
+            `;
         }
     </script>
 </head>
